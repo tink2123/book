@@ -1,7 +1,4 @@
 # 线性回归
-
-修改尝试pre-commit
-
 让我们从经典的线性回归（Linear Regression \[[1](#参考文献)\]）模型开始这份教程。在这一章里，你将使用真实的数据集建立起一个房价预测模型，并且了解到机器学习中的若干重要概念。
 
 本教程源代码目录在[book/fit_a_line](https://github.com/PaddlePaddle/book/tree/develop/01.fit_a_line)， 初次使用请参考PaddlePaddle[安装教程](https://github.com/PaddlePaddle/book/blob/develop/README.cn.md#运行这本书)，更多内容请参考本教程的[视频课堂](http://bit.baidu.com/course/detail/id/137.html)。
@@ -18,7 +15,7 @@ $$y_i = \omega_1x_{i1} + \omega_2x_{i2} + \ldots + \omega_dx_{id} + b,  i=1,\ldo
 ## 效果展示
 我们使用从[UCI Housing Data Set](https://archive.ics.uci.edu/ml/datasets/Housing)获得的波士顿房价数据集进行模型的训练和预测。下面的散点图展示了使用模型对部分房屋价格进行的预测。其中，每个点的横坐标表示同一类房屋真实价格的中位数，纵坐标表示线性回归模型根据特征预测的结果，当二者值完全相等的时候就会落在虚线上。所以模型预测得越准确，则点离虚线越近。
 <p align="center">
-    <img src = "image/predictions.png" width=400><br/>
+    <img src = "https://github.com/PaddlePaddle/book/blob/develop/01.fit_a_line/image/predictions.png?raw=true" width=400><br/>
     图1. 预测值 V.S. 真实值
 </p>
 
@@ -83,7 +80,7 @@ $$MSE=\frac{1}{n}\sum_{i=1}^{n}{(\hat{Y_i}-Y_i)}^2$$
 - 很多的机器学习技巧/模型（例如L1，L2正则项，向量空间模型-Vector Space Model）都基于这样的假设：所有的属性取值都差不多是以0为均值且取值范围相近的。
 
 <p align="center">
-    <img src = "image/ranges.png" width=550><br/>
+    <img src = "https://github.com/PaddlePaddle/book/blob/develop/01.fit_a_line/image/ranges.png?raw=true" width=550><br/>
     图2. 各维属性的取值范围
 </p>
 
@@ -233,8 +230,11 @@ trainer.train(
     event_handler=event_handler_plot,
     feed_order=feed_order)
 ```
+<div align="center">
+<img src="https://github.com/PaddlePaddle/book/blob/develop/01.fit_a_line/image/train_and_test.png?raw=true" width="400"><br/>
+图3 训练结果
+</div>
 
-![png](./image/train_and_test.png)
 
 ## 预测
 提供一个`inference_program`和一个`params_dirname`来初始化预测器。`params_dirname`用来存储我们的参数。

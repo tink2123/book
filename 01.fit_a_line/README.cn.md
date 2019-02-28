@@ -140,9 +140,8 @@ test_reader = paddle.batch(
 如果想直接从txt文件中读取数据的话，可以参考以下方式。
 
 >     feature_names = [
-       'CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
-       'PTRATIO', 'B', 'LSTAT', 'convert'
-]
+>       'CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+>       'PTRATIO', 'B', 'LSTAT', 'convert']
 >
 >     feature_num = len(feature_names)
 >

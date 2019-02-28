@@ -139,12 +139,12 @@ test_reader = paddle.batch(
 
 如果想直接从txt文件中读取数据的话，可以参考以下方式。
 
->   feature_names = [
-    'CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
-    'PTRATIO', 'B', 'LSTAT', 'convert'
+>     feature_names = [
+       'CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT', 'convert'
 ]
 >
->    feature_num = len(feature_names)
+>     feature_num = len(feature_names)
 >
 >     data = numpy.fromfile(filename, sep=' ') # 从文件中读取原始数据
 >
@@ -162,17 +162,17 @@ test_reader = paddle.batch(
 >
 >     train_data = data[:offset]
 >
-> test_data = data[offset:]
+>     test_data = data[offset:]
 >
-> train_reader = paddle.batch(
->    paddle.reader.shuffle(
->        train_data, buf_size=500),
->        batch_size=BATCH_SIZE)
+>     train_reader = paddle.batch(
+>        paddle.reader.shuffle(
+>            train_data, buf_size=500),
+>            batch_size=BATCH_SIZE)
 >
-> test_reader = paddle.batch(
->    paddle.reader.shuffle(
->        test_data, buf_size=500),
->        batch_size=BATCH_SIZE)
+>     test_reader = paddle.batch(
+>        paddle.reader.shuffle(
+>            test_data, buf_size=500),
+>            batch_size=BATCH_SIZE)
 >  
 
 ### 配置训练程序

@@ -139,28 +139,28 @@ test_reader = paddle.batch(
 
 如果想直接从txt文件中读取数据的话，可以参考以下方式。
 
-> feature_names = [
+>   feature_names = [
     'CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
     'PTRATIO', 'B', 'LSTAT', 'convert'
 ]
 >
-> feature_num = len(feature_names)
+>    feature_num = len(feature_names)
 >
-> data = numpy.fromfile(filename, sep=' ') # 从文件中读取原始数据
+>     data = numpy.fromfile(filename, sep=' ') # 从文件中读取原始数据
 >
-> data = data.reshape(data.shape[0] // feature_num, feature_num)
+>     data = data.reshape(data.shape[0] // feature_num, feature_num)
 >
-> maximums, minimums, avgs = data.max(axis=0), data.min(axis=0), data.sum(axis=0) / data.shape[0]
+>     maximums, minimums, avgs = data.max(axis=0), data.min(axis=0), data.sum(axis=0) / data.shape[0]
 >
-> for i in six.moves.range(feature_num-1):
+>     for i in six.moves.range(feature_num-1):
 >
 >     data[:, i] = (data[:, i] - avgs[i]) / (maximums[i] - minimums[i]) # six.moves可以兼容python2和python3
 >
-> ratio = 0.8 # 训练集和验证集的划分比例
+>     ratio = 0.8 # 训练集和验证集的划分比例
 >
-> offset = int(data.shape[0]*ratio)
+>     offset = int(data.shape[0]*ratio)
 >
-> train_data = data[:offset]
+>     train_data = data[:offset]
 >
 > test_data = data[offset:]
 >
